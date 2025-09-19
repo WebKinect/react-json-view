@@ -19,6 +19,8 @@ class ReactJsonView extends React.PureComponent {
       editKeyRequest: false,
       validationFailure: false,
       src: ReactJsonView.defaultProps.src,
+      changes: ReactJsonView.defaultProps.changes,
+      removes: ReactJsonView.defaultProps.removes,
       name: ReactJsonView.defaultProps.name,
       theme: ReactJsonView.defaultProps.theme,
       validationMessage: ReactJsonView.defaultProps.validationMessage,
@@ -36,6 +38,8 @@ class ReactJsonView extends React.PureComponent {
   // all acceptable props and default values
   static defaultProps = {
     src: {},
+    changes: null,
+    removes: null,
     name: 'root',
     theme: 'rjv-default',
     collapsed: false,
@@ -174,7 +178,7 @@ class ReactJsonView extends React.PureComponent {
       name
     } = this.state
 
-    const { style, defaultValue } = this.props
+    const { style, defaultValue, changes, removes } = this.props
 
     return (
       <div
@@ -190,6 +194,8 @@ class ReactJsonView extends React.PureComponent {
         <JsonViewer
           {...this.props}
           src={src}
+          changes={changes}
+          removes={removes}
           name={name}
           theme={theme}
           type={toType(src)}

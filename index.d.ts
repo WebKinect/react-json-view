@@ -8,6 +8,18 @@ export interface ReactJsonViewProps {
    */
   src: object
   /**
+   * This property contains your input JSON changes in the same structure as src.
+   *
+   * Required.
+   */
+  changes: null|object
+  /**
+   * This property contains your input JSON removes in the same structure as src.
+   *
+   * Required.
+   */
+  removes: null|object
+  /**
    * Contains the name of your root node. Use null or false for no name.
    *
    * Default: "root"

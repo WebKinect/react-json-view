@@ -53,7 +53,7 @@ export default class extends React.PureComponent {
       this.setState({
         copied: false
       })
-    }, 5500)
+    }, 15500)
 
     this.setState({ copied: true }, () => {
       if (typeof clickCallback !== 'function') {
@@ -75,7 +75,17 @@ export default class extends React.PureComponent {
       return (
         <span>
           <Clippy className='copy-icon' {...Theme(theme, 'copy-icon')} />
-          <span {...Theme(theme, 'copy-icon-copied')}>✔</span>
+          <span className='copied-icon'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='16'
+              height='16'
+              fill='green'
+              viewBox='0 0 16 16'
+            >
+              <path d='M6.173 12.414l-3.89-3.89 1.414-1.414L6.173 9.586l6.364-6.364 1.414 1.414z' />
+            </svg>
+          </span>
         </span>
       )
     }
@@ -95,7 +105,7 @@ export default class extends React.PureComponent {
   }
 
   render () {
-    const { src, theme, hidden, rowHovered } = this.props
+    const { theme, hidden, rowHovered } = this.props
     const style = Theme(theme, 'copy-to-clipboard').style
     let display = 'inline'
 
