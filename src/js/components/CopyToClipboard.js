@@ -53,7 +53,7 @@ export default class extends React.PureComponent {
       this.setState({
         copied: false
       })
-    }, 15500)
+    }, 5500)
 
     this.setState({ copied: true }, () => {
       if (typeof clickCallback !== 'function') {
