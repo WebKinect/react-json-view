@@ -33,13 +33,13 @@ jobs:
           mkdir react-json-view
           cp -r dist package.json index.d.ts README.md LICENSE.md react-json-view/
 
-      # ZIP erstellen
-      - name: Create archive
-        run: zip -r react-json-view.zip react-json-view/*
+      # TAR.GZ erstellen
+      - name: Create TAR.GZ archive
+        run: tar -czf package.tar.gz -C react-json-view .
 
       # ZIP als Release-Asset hochladen
       - name: Upload release asset
         uses: softprops/action-gh-release@v1
         with:
-          files: react-json-view.zip
+          files: package.tar.gz
           token: ${{ secrets.GITHUB_TOKEN }}
