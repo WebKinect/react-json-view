@@ -31,7 +31,7 @@ jobs:
       - name: Prepare release folder
         run: |
           mkdir react-json-view
-          cp -r dist package.json index.d.ts README.md LICENSE.md
+          cp -r dist package.json index.d.ts README.md
 
       # ZIP erstellen
       - name: Create archive
